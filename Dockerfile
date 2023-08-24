@@ -23,6 +23,6 @@ RUN mv ${ORASPKG}/bin/${TARGETPLATFORM}/oras /go/bin/oras
 FROM docker.io/library/alpine:3.17.1
 RUN apk --update add ca-certificates
 COPY --from=builder /go/bin/oras /bin/oras
-RUN mkdir /workspace
+RUN mkdir -p /workspace
 WORKDIR /workspace
 ENTRYPOINT  ["/bin/oras"]
